@@ -1,12 +1,11 @@
 #root {
-  
   margin: 0;
-
   text-align: center;
 }
 
-
-
+h1 {
+  font-size: 3rem;
+}
 .container {
   display: flex;
   justify-content: space-between;
@@ -21,26 +20,25 @@
   flex-basis: 30%;
   padding: 20px;
   border: 2px solid white;
-
 }
 .displayContainer {
-  flex:1;
-  border-left: 1px solid #ccc; 
+  flex: 1;
+  border-left: 1px solid #ccc;
   padding-left: 20px;
   margin-bottom: 20px;
-  
 }
 
-input[type="text"], input[type="email"], input[type="number"] {
+input {
   width: 90%;
- 
   padding: 10px;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus {
-  border-color: #007BFF; 
-  outline: none; 
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
 }
