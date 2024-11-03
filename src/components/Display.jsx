@@ -1,53 +1,57 @@
-import "/src/styles/display.css"
+import "/src/styles/display.css";
 
-function display({generalInfo, education, experience}) {
-    return (
-        <div className="main-container">
-            <h2 className = "fullName">{generalInfo.fullName}</h2>
-            <h3>General Information</h3>
+function Display({ generalInfo, education, experience }) {
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+    });
+  };
 
-            <div className = "aboutMe">
-                <p >{generalInfo.email}</p>
-            <p>{generalInfo.phoneNumber}</p>
-            </div>
-            
+  return (
+    <div className="main-container">
+      <div className="header">
+        <h2 className="fullName">{generalInfo.fullName}</h2>
+        <p className="subheading">{generalInfo.address}</p>
+      </div>
 
-            <h3 className="heading">Education</h3>
-            <div className="subHeading">
-                <p>{education.degree}</p>
-            </div>
-            <div className="info">
-                <p>{education.school}</p>
-                <p>{education.location}</p>
-            </div>
-            <div className="subHeaing date">
-                <p>{new Date(education.startDate).toLocaleDateString()}</p>
-                <p>{new Date(education.endDate).toLocaleDateString()}</p>               
-            </div>
-            <h3 className="heading">Experience</h3>
-            <div className="subHeading">
-            <p>{experience.companyName}</p>
-            </div>
-            <div className="info">
-            <p>{experience.position}</p>
-                
-            </div>
-            <div className="subHeaing date">
-            <p>{new Date(experience.startDate).toLocaleDateString()}</p>
-            <p>{new Date(experience.endDate).toLocaleDateString()}</p>
-            </div>
+      <div className="section aboutMe">
+        <h3 className="section-title">Contact Information</h3>
+        <p>
+          <strong>Email:</strong> {generalInfo.email}
+        </p>
+        <p>
+          <strong>Phone:</strong> {generalInfo.phoneNumber}
+        </p>
+      </div>
 
-            
-            
-            
-            
-
-           
-            
-           
-            
+      <div className="section">
+        <h3 className="section-title">Education</h3>
+        <div className="details">
+          <p className="degree">{education.degree}</p>
+          <p className="date-range">
+            {formatDate(education.startDate)} - {formatDate(education.endDate)}
+          </p>
+          <p className="institution">
+            {education.school}, {education.location}
+          </p>
         </div>
-    );
+      </div>
+
+      <div className="section">
+        <h3 className="section-title">Experience</h3>
+        <div className="details">
+          <p className="company">{experience.companyName}</p>
+          <p className="position">{experience.position}</p>
+          <p className="date-range">
+            {formatDate(experience.startDate)} -{" "}
+            {formatDate(experience.endDate)}
+          </p>
+          <p className="responsibilities">{experience.description} </p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default display;
+export default Display;
